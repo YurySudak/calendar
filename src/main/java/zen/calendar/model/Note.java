@@ -1,6 +1,8 @@
 package zen.calendar.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,4 +20,13 @@ public class Note {
     private LocalDateTime dateTime;
     @ManyToOne
     private Person person;
+    @JsonIgnore
+    @Enumerated(EnumType.STRING)
+    private Status status;
+    int position;
+
+    public Note(String content, LocalDateTime dateTime) {
+        this.content = content;
+        this.dateTime = dateTime;
+    }
 }

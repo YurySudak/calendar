@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import zen.calendar.model.Person;
 
 @Repository
-public interface UserRepository extends CrudRepository<Person, Long> {
+public interface PersonRepository extends CrudRepository<Person, Long> {
 }
