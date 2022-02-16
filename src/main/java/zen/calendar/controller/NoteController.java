@@ -29,7 +29,7 @@ public class NoteController {
 
     @PostMapping("/")
     public ResponseEntity<Note> postNote(@RequestBody Note note) {
-        Note postNote = new Note(note.getContent(), note.getDateTime());
+        Note postNote = new Note(note.getContent(), note.getDateTime(), note.getPosition());
         Person person = personRepository.findById(note.getPerson().getId()).orElse(null);
         if (null == person) return ResponseEntity.notFound().build();
         postNote.setPerson(person);
@@ -45,6 +45,7 @@ public class NoteController {
         putNote.setContent(note.getContent());
         putNote.setDateTime(note.getDateTime());
         putNote.setPerson(person);
+        putNote.setPosition(note.getPosition());
         return ResponseEntity.ok(noteRepository.save(putNote));
     }
 

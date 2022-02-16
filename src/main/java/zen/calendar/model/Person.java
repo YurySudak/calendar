@@ -19,7 +19,4 @@ public class Person {
     private String name;
     @JsonIgnore
     private String password;
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Note> notes = new ArrayList<>();
 }

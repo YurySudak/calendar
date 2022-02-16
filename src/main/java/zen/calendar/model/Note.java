@@ -25,8 +25,9 @@ public class Note {
     private Status status;
     int position;
 
-    public Note(String content, LocalDateTime dateTime) {
+    public Note(String content, LocalDateTime dateTime, int position) {
         this.content = content;
         this.dateTime = dateTime;
+        this.position = position;
     }
 }
