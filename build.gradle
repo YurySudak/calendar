@@ -28,6 +28,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-parent'
     implementation 'org.projectlombok:lombok:1.18.22'
     implementation 'org.flywaydb:flyway-core'
     compileOnly 'org.projectlombok:lombok'
@@ -39,13 +40,14 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
-configurations.implementation.canBeResolved = true
 
-jar {
-    manifest {
-        attributes(
-                'Class-Path': configurations.implementation.collect { it.name }.join(' '),
-                'Main-Class': 'zen.calendar.CalendarApplication'
-        )
-    }
-}
+//configurations.implementation.canBeResolved = true
+//
+//jar {
+//    manifest {
+//        attributes(
+//                'Class-Path': configurations.implementation.collect { it.name }.join(' '),
+//                'Main-Class': 'zen.calendar.CalendarApplication'
+//        )
+//    }
+//}
