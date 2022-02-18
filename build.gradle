@@ -43,11 +43,4 @@ tasks.named('test') {
 
 configurations.implementation.canBeResolved = true
 
-jar {
-    manifest {
-        attributes(
-                'Class-Path': configurations.implementation.collect { it.name }.join(' '),
-                'Main-Class': 'zen.calendar.CalendarApplication'
-        )
-    }
-}
+
