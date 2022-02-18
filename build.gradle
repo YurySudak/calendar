@@ -43,4 +43,10 @@ tasks.named('test') {
 
 configurations.implementation.canBeResolved = true
 
-
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'zen.calendar.CalendarApplication'
+        )
+    }
+}
