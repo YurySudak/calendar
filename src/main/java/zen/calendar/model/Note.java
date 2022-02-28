@@ -22,11 +22,16 @@ public class Note {
     @JsonIgnore
     @Enumerated(EnumType.STRING)
     private Status status;
-    int position;
+    private int position;
+    private boolean executed;
+    private final LocalDateTime created = LocalDateTime.now();
+    private LocalDateTime updated = LocalDateTime.now();
 
-    public Note(String content, LocalDateTime dateTime, int position) {
+
+    public Note(String content, LocalDateTime dateTime, int position, boolean executed) {
         this.content = content;
         this.dateTime = dateTime;
         this.position = position;
+        this.executed = executed;
     }
 }

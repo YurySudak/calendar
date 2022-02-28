@@ -14,12 +14,14 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
     @Query(value = "select * from note where " +
             "person_id = :id " +
+            "and extract(day from date_time) = :day " +
             "and extract(month from date_time) = :month " +
             "and extract(year from date_time) = :year " +
             "and status = :status",
             nativeQuery = true)
     Collection<Note> getThem(
             @Param("id") Long id,
+            @Param("day") Integer day,
             @Param("month") Integer month,
             @Param("year") Integer year,
             @Param("status") String status);
